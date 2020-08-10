@@ -1,0 +1,49 @@
+* {
+    /* menghilangkan margin dan padding bawaan browser */
+    margin: 0;
+    padding: 0;
+}
+
+#game {
+    width: 700px;
+    height: 400px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+#character {
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    top: 350px; /* top 350 karena tinggi bingkai game 400 px dikurangi tinggi character 50px */
+}
+
+.animate {
+    animation: jump 500ms;
+}
+
+#block {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: relative;
+    /* top 330px karena sudah ada top dari character 400 - 50 - 20 = 330px */
+    /* left -> 700 - 20 px */
+    top: 330px;
+    left: 680px;
+    animation: block 1s infinite linear;
+}
+
+@keyframes jump {
+    0%{top: 350px}
+    30%{top:310px} /* dengan 30% dan 70% membuat character seperti berada diatas sedikit lama ketika melompat */
+    70%{top:310px}
+    100%{top:350px}
+}
+
+/* membuat animation block rintangan berjalan */
+@keyframes block {
+    from{left: 680px;}
+    to{left: -5px;}
+}
